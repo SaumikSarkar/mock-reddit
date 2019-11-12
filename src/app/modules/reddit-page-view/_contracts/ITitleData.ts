@@ -4,4 +4,5 @@ export interface ITitleData {
     time: string;
     upvotes: number;
     upvoteRatio: number;
+    commentCount: number;
 }
