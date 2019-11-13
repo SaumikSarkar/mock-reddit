@@ -1,0 +1,8 @@
+<div class="comment" [ngClass]="{'comment-segregation-indicator' : commentData.replies.length > 0}">
+    <p>{{commentData.comment}}</p>
+    <div *ngFor="let comment of commentData.replies" class="comment-container">
+        <app-comment 
+            [comment-data]='comment'>
+        </app-comment>
+    </div>
+</div>

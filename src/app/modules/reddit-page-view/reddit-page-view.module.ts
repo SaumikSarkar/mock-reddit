@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
 import { CommentPageComponent } from './components/comment-page/comment-page.component';
+import { CommentComponent } from './components/comment/comment.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'commentpage', pathMatch: 'full'},
@@ -11,7 +12,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    CommentPageComponent
+    CommentPageComponent,
+    CommentComponent
   ],
   imports: [
     CommonModule,

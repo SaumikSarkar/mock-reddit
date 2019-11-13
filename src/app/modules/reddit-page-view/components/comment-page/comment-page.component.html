@@ -1,1 +1,10 @@
-<p>comment-page works!</p>
+<div class="page-container">
+    <h2>{{pageData.titleData.title}}</h2>
+    <section class="comment-section">
+        <div *ngFor="let comment of pageData.commentData" class="comment-container">
+            <app-comment 
+                [comment-data]='comment'>
+            </app-comment>
+        </div>
+    </section>
+</div>

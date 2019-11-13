@@ -17,7 +17,7 @@ export class PageViewService {
 
   constructor(private http: HttpClient) { }
 
-  getPageData(): Observable<any> {
+  getPageData(): Observable<models.APIModifiedData> {
     return this.http.get(this.apiUrl).pipe(map(response => this.mapAPIData(response)));
   }
 
@@ -54,7 +54,8 @@ export class PageViewService {
           author: dataArray[i].data.author,
           comment: dataArray[i].data.body,
           replies: dataArray[i].data.replies ?
-            this.mapCommentData(dataArray[i].data.replies.data.children) : []
+            this.mapCommentData(dataArray[i].data.replies.data.children) : [],
+          isVisible: true
         }
         commentData.push(comment);
       }
