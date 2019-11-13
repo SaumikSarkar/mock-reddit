@@ -1,8 +1,16 @@
 <div class="comment" [ngClass]="{'comment-segregation-indicator' : commentData.replies.length > 0}">
-    <p>{{commentData.comment}}</p>
-    <div *ngFor="let comment of commentData.replies" class="comment-container">
-        <app-comment 
-            [comment-data]='comment'>
-        </app-comment>
+    <p>
+        <span *ngIf="commentData.replies.length > 0" (click)="toggleCommentVisibility()">
+            <i [ngClass]="commentData.isVisible ? 'fa fa-arrow-down' : 'fa fa-arrow-right'"></i>
+        </span>
+        {{commentData.comment}}
+    </p>
+    <p class="details">{{commentData.author}}</p>
+    <div *ngIf="commentData.isVisible">
+        <div *ngFor="let comment of commentData.replies" class="comment-container">
+            <app-comment 
+                [comment-data]='comment'>
+            </app-comment>
+        </div>
     </div>
 </div>

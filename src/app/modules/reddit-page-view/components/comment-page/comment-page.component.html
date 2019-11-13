@@ -1,5 +1,9 @@
 <div class="page-container">
-    <h2>{{pageData.titleData.title}}</h2>
+    <div>
+        <h2>{{pageData.titleData.title}}</h2>
+        <p class="details">{{pageData.titleData.author}} | {{pageData.titleData.time}} ago</p>
+        <p class="details">{{pageData.titleData.upvotes}} | {{pageData.titleData.upvoteRatio * 100}}% upvotes | {{pageData.titleData.commentCount}} comments</p>
+    </div>
     <section class="comment-section">
         <div *ngFor="let comment of pageData.commentData" class="comment-container">
             <app-comment 

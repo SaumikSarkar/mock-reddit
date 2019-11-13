@@ -19,4 +19,8 @@ export class CommentComponent implements OnInit {
   ngOnInit() {
   }
 
+  toggleCommentVisibility() {
+    this.commentData.isVisible = !this.commentData.isVisible;
+  }
+
 }
