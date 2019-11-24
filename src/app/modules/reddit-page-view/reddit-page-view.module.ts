@@ -1,23 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
+import { RedditPageRoutingModule } from './reddit-page-routing.module';
 
 import { CommentPageComponent } from './components/comment-page/comment-page.component';
 import { CommentComponent } from './components/comment/comment.component';
-
-const routes: Routes = [
-  { path: '', redirectTo: 'commentpage', pathMatch: 'full'},
-  { path: 'commentpage', component: CommentPageComponent}
-];
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 @NgModule({
   declarations: [
     CommentPageComponent,
-    CommentComponent
+    CommentComponent,
+    HomePageComponent
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RedditPageRoutingModule
   ]
 })
 export class RedditPageViewModule { }

@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'redditpage', pathMatch: 'full' },
+  { path: '', redirectTo: 'mockreddit', pathMatch: 'full' },
   {
-    path: 'redditpage',
+    path: 'mockreddit',
     loadChildren: () => import('./modules/reddit-page-view/reddit-page-view.module')
       .then(module => module.RedditPageViewModule)
   }

@@ -63,4 +63,8 @@ export class PageViewService {
     return commentData;
   }
 
+  getRedditHomeData(apiUrl: string) : Observable<any> {
+    return this.http.get(`https://${apiUrl}/.json`);
+  }
+
 }
