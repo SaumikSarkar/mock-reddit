@@ -15,7 +15,7 @@ export class HomePageComponent implements OnInit {
   }
 
   getPageLoadData() {
-    this.pageViewService.getRedditHomeData('www.reddit.com').subscribe((data) => {
+    this.pageViewService.getRedditHomeData('www.reddit.com/').subscribe((data) => {
       console.log(data);
     });
   }

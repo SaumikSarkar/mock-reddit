@@ -63,8 +63,28 @@ export class PageViewService {
     return commentData;
   }
 
-  getRedditHomeData(apiUrl: string) : Observable<any> {
-    return this.http.get(`https://${apiUrl}/.json`);
+  getRedditHomeData(apiUrl: string): Observable<Array<models.HomePageDetailData>> {
+    return this.http.get(`https://${apiUrl}.json`)
+      .pipe(map(response => this.mapHomeAPIData(response)));
+  }
+
+  mapHomeAPIData(apiData: any): Array<models.HomePageDetailData> {
+    let homePageModifiedData: Array<models.HomePageDetailData> = new Array<models.HomePageDetailData>();
+    let data: any = apiData.data.children;
+    for (let i = 0; i < data.length - 1; i++) {
+      let detailData: models.HomePageDetailData = new models.HomePageDetailData();
+      detailData = {
+        discussionTitle: data[i].data.title,
+        author: data[i].data.author,
+        showImg: data[i].data.thumbnail.indexOf('https://') == -1 ? false : true,
+        imgUrl: data[i].data.thumbnail,
+        imgHeight: `${data[i].data.thumbnail_height}px`,
+        imgWidth: `${data[i].data.thumbnail_width}px`,
+        redirectUrl: `www.reddit.com${data[i].data.permalink}`
+      }
+      homePageModifiedData.push(detailData);
+    }
+    return homePageModifiedData;
   }
 
 }
