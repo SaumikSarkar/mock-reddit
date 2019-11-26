@@ -1,1 +1,10 @@
-<p>home-page works!</p>
+<div class="home-page-container">
+    <div class="discussion-detail-panel">
+        <div class="discussion-detail-container" *ngFor="let discussion of homePageData">
+            <app-discussion-detail 
+                [discussion-data]="discussion"
+                (set-discussion-url)="goToDiscussion($event)">
+            </app-discussion-detail>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+@import url('../../_styles/comment-style.scss');
+
+.detail-container {
+    border: 1px solid;
+    padding: 10px;
+    .discussion-title {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}

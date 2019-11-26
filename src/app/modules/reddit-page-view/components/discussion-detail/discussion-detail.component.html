@@ -1,0 +1,11 @@
+<div class="detail-container">
+    <h3 class="discussion-title" (click)="redirectToDiscussion(discussionData.redirectUrl)">
+        {{discussionData.discussionTitle}}
+    </h3>
+    <figure *ngIf="discussionData.showImg">
+        <img [style.height]="discussionData.imgHeight" 
+            [style.width]="discussionData.imgWidth"
+            [src]="discussionData.imgUrl" />
+    </figure>
+    <p class="details">posted by {{discussionData.author}}</p>
+</div>

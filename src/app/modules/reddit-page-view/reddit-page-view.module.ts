@@ -5,12 +5,14 @@ import { RedditPageRoutingModule } from './reddit-page-routing.module';
 import { CommentPageComponent } from './components/comment-page/comment-page.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { DiscussionDetailComponent } from './components/discussion-detail/discussion-detail.component';
 
 @NgModule({
   declarations: [
     CommentPageComponent,
     CommentComponent,
-    HomePageComponent
+    HomePageComponent,
+    DiscussionDetailComponent
   ],
   imports: [
     CommonModule,

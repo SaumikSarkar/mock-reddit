@@ -9,16 +9,10 @@ import * as models from '../_models';
 })
 export class PageViewService {
 
-  //************ Variables ************/
-
-  apiUrl: string = 'https://www.reddit.com/r/AskReddit/comments/duib1h/which_book_should_a_depressed_person_absolutely/.json';
-
-  //********************************* */
-
   constructor(private http: HttpClient) { }
 
-  getPageData(): Observable<models.APIModifiedData> {
-    return this.http.get(this.apiUrl).pipe(map(response => this.mapAPIData(response)));
+  getPageData(apiUrl: string): Observable<models.APIModifiedData> {
+    return this.http.get(`https://${apiUrl}.json`).pipe(map(response => this.mapAPIData(response)));
   }
 
   mapAPIData(apiData: any): models.APIModifiedData {

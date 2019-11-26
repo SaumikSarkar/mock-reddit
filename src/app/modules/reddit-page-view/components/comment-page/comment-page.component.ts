@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageViewService } from '../../_services/page-view.service';
 import * as models from '../../_models';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-comment-page',
@@ -15,14 +16,16 @@ export class CommentPageComponent implements OnInit {
 
   //****************************** */
 
-  constructor(private pageViewService: PageViewService) { }
+  constructor(private pageViewService: PageViewService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.getViewData();
   }
 
   getViewData() {
-    this.pageViewService.getPageData().subscribe((data: models.APIModifiedData) => {
+    let discussionUrl: string = this.route.snapshot.paramMap.get('discussionurl');
+    this.pageViewService.getPageData(discussionUrl).subscribe((data: models.APIModifiedData) => {
       this.pageData = data;
       console.log(this.pageData);
     });
