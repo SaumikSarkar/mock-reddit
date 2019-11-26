@@ -14,6 +14,9 @@ export class HomePageComponent implements OnInit {
 
   homePageData: Array<models.HomePageDetailData> = new Array<models.HomePageDetailData>();
 
+  criterias: Array<string>;
+  criteria: string = 'Select';
+
   //**************************** */
 
   constructor(private pageViewService: PageViewService,
@@ -21,11 +24,16 @@ export class HomePageComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.setDropdownData();
     this.getPageLoadData();
   }
 
   getPageLoadData() {
-    this.pageViewService.getRedditHomeData('www.reddit.com/').subscribe((data) => {
+    let url: string = 'www.reddit.com/';
+    if (this.criteria != 'Select') {
+      url += this.criteria.toLowerCase();
+    }
+    this.pageViewService.getRedditHomeData(url).subscribe((data) => {
       this.homePageData = data;
       console.log(this.homePageData);
     });
@@ -33,6 +41,10 @@ export class HomePageComponent implements OnInit {
 
   goToDiscussion(url: string) {
     this.router.navigate(['../discussion', url], {relativeTo: this.route});
+  }
+
+  setDropdownData() {
+    this.criterias = ['Hot','New', 'Controversial', 'Top', 'Rising'];
   }
 
 }

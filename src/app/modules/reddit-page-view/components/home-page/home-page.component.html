@@ -1,4 +1,10 @@
 <div class="home-page-container">
+    <div>
+        <select [(ngModel)]="criteria" (change)="getPageLoadData()">
+            <option disabled="true">Select</option>
+            <option *ngFor="let criteria of criterias">{{criteria}}</option>
+        </select>
+    </div>
     <div class="discussion-detail-panel">
         <div class="discussion-detail-container" *ngFor="let discussion of homePageData">
             <app-discussion-detail 

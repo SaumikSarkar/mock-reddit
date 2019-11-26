@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'
 import { RedditPageRoutingModule } from './reddit-page-routing.module';
 
 import { CommentPageComponent } from './components/comment-page/comment-page.component';
@@ -16,6 +17,7 @@ import { DiscussionDetailComponent } from './components/discussion-detail/discus
   ],
   imports: [
     CommonModule,
+    FormsModule,
     RedditPageRoutingModule
   ]
 })
